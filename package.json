@@ -1,0 +1,30 @@
+{
+  "name": "hm10.2",
+  "version": "1.0.0",
+  "description": "finding top student",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MelihovaN/HM_10.2.git"
+  },
+  "keywords": [
+    "js",
+    "javascript",
+    "jest",
+    "unit",
+    "testing"
+  ],
+  "author": "NataliaM <melihova.qa@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MelihovaN/HM_10.2/issues"
+  },
+  "homepage": "https://github.com/MelihovaN/HM_10.2#readme",
+  "dependencies": {
+    "@types/jest": "^29.4.0",
+    "jest": "^29.4.2"
+  }
+}

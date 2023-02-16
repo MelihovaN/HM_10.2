@@ -1,4 +1,4 @@
-const groups = [
+let groups = [
   [
     { name: "Ivan", score: 35, date: "2022-10-11" },
     { name: "Maria", score: 5, date: "2022-10-10" },
@@ -24,21 +24,52 @@ const groups = [
     { name: "Tanya", score: 0, date: "2022-10-11" },
   ],
 ];
-groups.forEach((group, i) => {
+
+function getTopStudents(groups) {
   let students = [];
-  let score = group[i].score;
-
-  for (let student of group) {
-    if (student.score && student.score === score) {
-      students.push({
-        name: student.name,
-        score: student.score,
-        date: student.date,
-      });
+  let topStudent;
+  groups.forEach((group) => {
+    for (let student of group) {
+      let score = group[0].score;
+      if (student.score && student.score === score) {
+        students.push(student);
+      }
     }
-  }
+  });
+  topStudent = students
+    .sort((a, b) => new Date(a.date) - new Date(b.date))
+    .shift();
+  // if (topStudent == undefined) {
+  //   console.log("There is no best student in this group");
+  // } else console.log("The top student is " + topStudent.name);
+  return topStudent.name;
+}
 
-  console.log(
-    students.sort((a, b) => new Date(a.date) - new Date(b.date)).shift()
-  );
-});
+getTopStudents(groups);
+
+module.exports = getTopStudents;
+
+// function getTopStudent(groups) {
+//   for (let group of groups) {
+//     let topStudent;
+//     let bestScore = 0;
+//     let bestDate = new Date(0);
+//     group.forEach((student) => {
+//       if (student.score > bestScore) {
+//         bestScore = student.score;
+//         bestDate = new Date(student.date);
+//         topStudent = student.name;
+//       } else if (student.score === bestScore) {
+//         if (new Date(student.date) < bestDate) {
+//           bestDate = new Date(student.date);
+//           topStudent = student.name;
+//         }
+//       }
+//     });
+//     //console.log(topStudent);
+//     return topStudent;
+//   }
+// }
+
+// getTopStudent(groups);
+// module.exports = getTopStudent;
